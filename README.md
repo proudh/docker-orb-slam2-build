@@ -2,17 +2,28 @@
 
 Build [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2) in a Docker container starting from Ubuntu 14.04.
 
-##To build
+##To build from Docker Hub
+Pull the [image](https://hub.docker.com/r/proudh/docker-orb-slam2-build/) from Docker Hub like so:
+```
+$ docker pull proudh/docker-orb-slam2-build
+```
+
+
+##To build manually
 This assumes that you are in the same directory as the Dockerfile included in this repository.
 Use the following to build a Docker image with this Dockerfile with the name `slam-test`:
-`$ docker build -t slam-test .`
+```
+$ docker build -t slam-test .
+```
 
 
 ##To run
 This assumes that you are in the directory `~/docker/` with the ORB_SLAM2 repository cloned inside of this repository.
 The Docker image will mount `~/docker/ORB_SLAM2` on your local machine to `/ORB_SLAM2` so that the compiled files can be retrieved there after the container is killed.
 Run the following on the command line:
-`$ docker run -v ~/docker/ORB_SLAM2/:/ORB_SLAM2/ -w=/ORB_SLAM2/ slam-test /bin/bash -c ./build.sh`
+```
+$ docker run -v ~/docker/ORB_SLAM2/:/ORB_SLAM2/ -w=/ORB_SLAM2/ slam-test /bin/bash -c ./build.sh
+```
 This will run the build script from ORB_SLAM2 in the container.
 
 
